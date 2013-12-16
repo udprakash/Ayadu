@@ -1,0 +1,37 @@
+<h1>Listing pins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Daily</th>
+      <th>Weekly</th>
+      <th>Monthly</th>
+      <th>Advance</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pins.each do |pin| %>
+      <tr>
+        <td><%= pin.title %></td>
+        <td><%= pin.description %></td>
+        <td><%= pin.daily %></td>
+        <td><%= pin.weekly %></td>
+        <td><%= pin.monthly %></td>
+        <td><%= pin.advance %></td>
+        <td><%= link_to 'Show', pin %></td>
+        <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
+        <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pin', new_pin_path %>
