@@ -5,6 +5,8 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
+      <th>User</th>
+
       <th>Daily</th>
       <th>Weekly</th>
       <th>Monthly</th>
@@ -20,13 +22,18 @@
       <tr>
         <td><%= pin.title %></td>
         <td><%= pin.description %></td>
-        <td><%= pin.daily %></td>
+        <td><%= pin.user.firstname + " " + pin.user.lastname  %></td>
+
+        <td>Rs :<%= pin.daily %></td>
         <td><%= pin.weekly %></td>
         <td><%= pin.monthly %></td>
         <td><%= pin.advance %></td>
         <td><%= link_to 'Show', pin %></td>
+
+        <% if pin.user == current_user %>
         <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
         <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +41,6 @@
 
 <br>
 
+<% if user_signed_in? %>
 <%= link_to 'New Pin', new_pin_path %>
+<% end %>

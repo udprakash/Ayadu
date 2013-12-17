@@ -30,5 +30,9 @@
   <%= @pin.advance %>
 </p>
 
+<% if @pin.user == current_user %> <!-- @pin here becos using pin defined in the controller -->
+
 <%= link_to 'Edit', edit_pin_path(@pin) %> |
 <%= link_to 'Back', pins_path %>
+
+<% end %>
