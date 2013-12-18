@@ -4,6 +4,8 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Image</th>
+
       <th>Description</th>
       <th>User</th>
 
@@ -21,6 +23,8 @@
     <% @pins.each do |pin| %>
       <tr>
         <td><%= pin.title %></td>
+        <td><%= image_tag pin.image.url(:medium) %></td>
+
         <td><%= pin.description %></td>
         <td><%= pin.user.firstname + " " + pin.user.lastname  %></td>
 
