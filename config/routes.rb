@@ -6,6 +6,7 @@ Ayadu::Application.routes.draw do
   devise_for :users
   root 'pages#home'
   get "about" => "pages#about"
+  match 'user_root' => redirect("root_path")
 
 
 
